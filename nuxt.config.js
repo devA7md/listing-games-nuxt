@@ -21,7 +21,15 @@ export default {
       {
         theme: 'saga-orange',
         ripple: true,
-        components: ['Button', 'Menu', 'Sidebar'],
+        components: [
+          'Button',
+          'Menu',
+          'Sidebar',
+          'Carousel',
+          'Message',
+          'ProgressSpinner',
+          'Card',
+        ],
         directives: [],
       },
     ],

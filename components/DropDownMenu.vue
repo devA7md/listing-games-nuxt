@@ -14,27 +14,28 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Component from 'vue-class-component'
+import Menu from 'primevue/menu/Menu'
 
-export default Vue.extend({
-  name: 'DropDownMenu',
-  data() {
-    return {
-      items: [
-        {
-          label: 'Update',
-          icon: 'pi pi-refresh',
-        },
-        {
-          label: 'Delete',
-          icon: 'pi pi-times',
-        },
-      ],
-    }
-  },
-  methods: {
-    toggle(event) {
-      this.$refs.menu.toggle(event)
+@Component
+export default class DropDownMenu extends Vue {
+  items = [
+    {
+      label: 'Update',
+      icon: 'pi pi-refresh',
     },
-  },
-})
+    {
+      label: 'Delete',
+      icon: 'pi pi-times',
+    },
+  ]
+
+  $refs!: {
+    menu: Menu
+  }
+
+  toggle(event: any) {
+    this.$refs.menu.toggle(event)
+  }
+}
 </script>

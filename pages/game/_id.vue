@@ -1,6 +1,6 @@
 <template>
-  <div class="m-5">
-    <div class="text-gray-500 text-5xl">Game Details</div>
+  <div class="my-4 sm:my-5 p-4 sm:p-10">
+    <GameDetails />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'GameDetails',
+  name: 'GameDetailsPage',
   key(route) {
     return route.fullPath
   },

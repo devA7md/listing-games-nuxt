@@ -6,11 +6,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import CategoryPreview from '~/components/CategoryPreview.vue'
 
 export default Vue.extend({
-  name: 'Category',
-  components: { CategoryPreview },
+  name: 'CategoryPage',
   key(route) {
     return route.fullPath
   },

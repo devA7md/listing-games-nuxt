@@ -41,12 +41,13 @@ import {
   fetchAndCategorizeGames,
   handleAxiosError,
 } from '@/services/games.services'
+import { IGamesCategories } from '~/types/games.types'
 
 @Component
 export default class Categories extends Vue {
-  categories = {}
-  loading = false
-  error = ''
+  categories: IGamesCategories = {}
+  loading: boolean = false
+  error: string | null = null
   responsiveOptions = [
     {
       breakpoint: '1024px',
@@ -74,6 +75,7 @@ export default class Categories extends Vue {
       const categorizedGames = await fetchAndCategorizeGames()
       this.categories = categorizedGames
       await this.$store.commit('games/setCategories', categorizedGames)
+      this.error = null
     } catch (error) {
       this.error = handleAxiosError(error, "Couldn't fetch categories")
     } finally {

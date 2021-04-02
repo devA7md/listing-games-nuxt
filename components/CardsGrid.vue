@@ -52,23 +52,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { IRecommendedGame } from '@/types/games.types';
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { IRecommendedGame } from '@/types/games.types'
 
-export default Vue.extend({
-  name: 'CardsGrid',
+const CardGridProps = Vue.extend({
   props: {
     title: String,
     games: Array,
     loading: Boolean,
     error: String,
   },
-  methods: {
-    previewDetails(game: IRecommendedGame) {
-      this.$store.commit('games/setSelectedGame', game);
-      this.$router.push({ name: 'game-id', params: { id: game.id } });
-      if (Object.keys(this.$route.params).length > 0) window.scrollTo(0, 0);
-    },
-  },
-});
+})
+
+@Component
+export default class CardsGrid extends CardGridProps {
+  previewDetails(game: IRecommendedGame) {
+    this.$store.commit('games/setSelectedGame', game)
+    this.$router.push({ name: 'game-id', params: { id: game.id } })
+    if (Object.keys(this.$route.params).length > 0) window.scrollTo(0, 0)
+  }
+}
 </script>

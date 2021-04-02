@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 sm:p-10">
+  <div>
     <CardsGrid
       :error="error"
       :loading="loading"
@@ -20,9 +20,9 @@ import { IGame } from '~/types/games.types'
 
 @Component
 export default class CategoryPreview extends Vue {
-  games = [] as IGame[]
-  loading = false
-  error = ''
+  games: IGame[] = []
+  loading: boolean = false
+  error: string | null = null
 
   get categories() {
     return this.$store.state.games.categories
@@ -36,6 +36,7 @@ export default class CategoryPreview extends Vue {
       try {
         this.loading = true
         this.games = (await fetchAndCategorizeGames())[this.$route.params.id]
+        this.error = null
       } catch (error) {
         this.error = handleAxiosError(error, "Couldn't fetch categories")
       } finally {

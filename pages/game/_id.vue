@@ -1,5 +1,5 @@
 <template>
-  <div class="my-4 sm:my-5 p-4 sm:p-10">
+  <div class="sec-layout">
     <GameDetails />
   </div>
 </template>
@@ -18,4 +18,3 @@ export default Vue.extend({
 })
 </script>
 
-<style></style>

@@ -2,7 +2,7 @@
   <CardsGrid
     :error="error"
     :loading="loading"
-    title="Most Recommended"
+    title="Most Popular"
     :games="games"
   />
 </template>
@@ -10,51 +10,51 @@
 <script lang="ts">
 import Vue from 'vue'
 import { IModifiedGame } from '@/types/games.types'
-import Component from 'vue-class-component'
 import { Subscription } from 'rxjs'
+import Component from 'vue-class-component'
 import {
   fetchAndTransformGames,
   handleAxiosError,
   injectSomeData,
-  mostRecommendedFilter,
+  mostPopularFilter,
 } from '@/services/games.services'
 
 @Component
-export default class MostRecommended extends Vue {
+export default class PopularGames extends Vue {
   games$: Subscription | null = null
   games: IModifiedGame[] = []
   loading: boolean = false
   error: string | null = null
 
-  get recommended() {
-    return this.$store.state.games.recommended
+  get popular() {
+    return this.$store.state.games.popular
   }
 
-  created() {
-    if (this.recommended.length > 0) {
-      return (this.games = this.recommended)
+  mounted(): void {
+    if (this.popular.length > 0) {
+      return (this.games = this.popular)
     }
 
     this.loading = true
     this.games$ = fetchAndTransformGames(
       injectSomeData,
-      mostRecommendedFilter,
-      6
+      mostPopularFilter,
+      4
     ).subscribe(
       (games: IModifiedGame[]) => {
         this.games = games
-        this.$store.commit('games/setRecommended', games)
+        this.$store.commit('games/setPopular', games)
         this.loading = false
         this.error = null
       },
       (error) => {
-        this.error = handleAxiosError(error, "Couldn't fetch recommended games")
+        this.error = handleAxiosError(error, "Couldn't fetch popular games")
         this.loading = false
       }
     )
   }
 
-  destroyed() {
+  destroyed(): void {
     if (this.games$) this.games$.unsubscribe()
   }
 }

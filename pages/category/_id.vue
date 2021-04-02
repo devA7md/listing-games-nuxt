@@ -1,19 +1,21 @@
 <template>
-  <div class="m-5">
-    <div class="text-gray-500 text-5xl">Category Games</div>
+  <div class="my-4 sm:my-5 p-4 sm:p-10">
+    <CategoryPreview />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import CategoryPreview from '~/components/CategoryPreview.vue'
 
 export default Vue.extend({
   name: 'Category',
+  components: { CategoryPreview },
   key(route) {
     return route.fullPath
   },
   head: {
-    title: 'Category Games',
+    title: 'Category',
   },
 })
 </script>

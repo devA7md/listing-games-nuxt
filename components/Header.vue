@@ -16,11 +16,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import DropDownMenu from '@/components/DropDownMenu.vue'
-import Drawer from '@/components/Drawer.vue'
 
 export default Vue.extend({
   name: 'Header',
-  components: { Drawer, DropDownMenu },
 })
 </script>

@@ -46,7 +46,7 @@ import { handleAxiosError } from '@/services/games.services'
 
 @Component
 export default class FeaturedGame extends Vue {
-  game: IGame = null
+  game: IGame | null = null
   loading: boolean = false
   error: string | null = null
 
@@ -54,7 +54,7 @@ export default class FeaturedGame extends Vue {
     return this.$store.state.games.featured
   }
 
-  async mounted(): void {
+  async mounted(): Promise<void> {
     if (this.featuredGame) {
       return (this.game = this.featuredGame)
     }

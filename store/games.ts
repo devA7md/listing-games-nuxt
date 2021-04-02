@@ -1,14 +1,15 @@
 import {
   IGame,
   IGamesCategories,
-  IRecommendedGame,
+  IModifiedGame,
   IState,
 } from '@/types/games.types'
 
-export const state = () => ({
+export const state = (): IState => ({
   categories: {},
   recommended: [],
-  featured: {},
+  popular: [],
+  featured: null,
   selectedGame: null,
 })
 
@@ -19,8 +20,11 @@ export const mutations = {
   setSelectedGame(state: IState, payload: IGame): void {
     state.selectedGame = payload
   },
-  setRecommended(state: IState, payload: IRecommendedGame[]): void {
+  setRecommended(state: IState, payload: IModifiedGame[]): void {
     state.recommended = payload
+  },
+  setPopular(state: IState, payload: IModifiedGame[]): void {
+    state.popular = payload
   },
   setFeaturedGame(state: IState, payload: IGame): void {
     state.featured = payload

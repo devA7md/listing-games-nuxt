@@ -9,13 +9,18 @@ export interface IGamesCategories {
   [id: string]: IGame[]
 }
 
-export interface IRecommendedGame extends IGame {
-  rate: number
+export interface IModifiedGame extends IGame {
+  year: number
+  rating: number
+  price: number
+  views: number
+  comments: number
 }
 
 export interface IState {
   categories: IGamesCategories
-  recommended: IRecommendedGame[]
-  featured: IGame
-  selectedGame: IGame
+  recommended: IModifiedGame[]
+  popular: IModifiedGame[]
+  featured: IGame | null
+  selectedGame: IGame | null
 }

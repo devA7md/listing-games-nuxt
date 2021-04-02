@@ -1,9 +1,9 @@
 <template>
   <header class="p-4 bg-gray-800 rounded-b-md">
     <div class="flex items-center justify-between">
-      <router-link to="/">
+      <NuxtLink to="/">
         <h2 class="text-gray-100 cursor-pointer text-lg">GAMES</h2>
-      </router-link>
+      </NuxtLink>
 
       <DropDownMenu />
 

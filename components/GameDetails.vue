@@ -26,7 +26,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import axios from 'axios'
 import { Subscription } from 'rxjs'
 import Component from 'vue-class-component'
 import { URL } from '@/constants/general'
@@ -48,7 +47,9 @@ export default class GameDetails extends Vue {
     } else {
       this.loading = true
       try {
-        const res = await axios.get(URL + '/posts/' + this.$route.params.id)
+        const res = await this.$axios.get(
+          URL + '/posts/' + this.$route.params.id
+        )
         this.game = res.data
         this.error = null
       } catch (error) {

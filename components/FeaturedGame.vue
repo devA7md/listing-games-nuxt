@@ -38,7 +38,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import axios from 'axios'
 import Component from 'vue-class-component'
 import { URL } from '@/constants/general'
 import { IGame } from '@/types/games.types'
@@ -62,7 +61,7 @@ export default class FeaturedGame extends Vue {
     this.loading = true
     try {
       const randomPostId = Math.max(1, Math.floor(Math.random() * 99))
-      const res = await axios.get(`${URL}/posts/${randomPostId}`)
+      const res = await this.$axios.get(`${URL}/posts/${randomPostId}`)
       this.game = res.data
       await this.$store.commit('games/setFeaturedGame', res.data)
       this.error = null

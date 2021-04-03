@@ -26,7 +26,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import axios from 'axios'
 import { from } from 'rxjs'
 import { bufferCount, defaultIfEmpty, filter, take } from 'rxjs/operators'
 import { URL } from '~/constants/general'
@@ -46,7 +45,7 @@ export default class SearchGame extends Vue {
       return (this.games = stateGames)
     }
     try {
-      const response = await axios.get(URL + '/posts')
+      const response = await this.$axios.get(URL + '/posts')
       this.games = response.data
       this.$store.commit('games/setSearchedGames', response.data)
     } catch (error) {
@@ -65,9 +64,9 @@ export default class SearchGame extends Vue {
         filter((game: any) =>
           game.title.toLowerCase().startsWith(text.toLowerCase())
         ),
+        defaultIfEmpty([]),
         bufferCount(7),
-        take(1),
-        defaultIfEmpty([])
+        take(1)
       )
       .subscribe((games: any) => {
         this.filtered = games

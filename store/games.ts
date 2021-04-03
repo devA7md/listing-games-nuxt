@@ -11,6 +11,7 @@ export const state = (): IState => ({
   popular: [],
   featured: null,
   selectedGame: null,
+  searchedGames: [],
 })
 
 export const mutations = {
@@ -28,5 +29,8 @@ export const mutations = {
   },
   setFeaturedGame(state: IState, payload: IGame): void {
     state.featured = payload
+  },
+  setSearchedGames(state: IState, payload: IGame[]): void {
+    state.searchedGames = payload
   },
 }

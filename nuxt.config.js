@@ -29,6 +29,8 @@ export default {
           'Message',
           'ProgressSpinner',
           'Card',
+          'InputText',
+          'Dialog',
         ],
         directives: [],
       },

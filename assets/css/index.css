@@ -2,6 +2,33 @@ html {
   scroll-behavior: smooth;
 }
 
+.p-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.p-card-content {
+  padding: 0;
+}
+
+.line-clamp {
+  height: 3.2em;
+  line-height: 1.6em;
+  display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.p-dialog-content {
+  height: 100%;
+}
+
 .sec-layout {
   @apply my-4 sm:my-5 p-4 sm:p-10;
+}
+
+.icon-style {
+  @apply text-gray-50 text-xl cursor-pointer;
 }

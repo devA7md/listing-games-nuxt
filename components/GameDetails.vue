@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <h1 class="text-4xl text-gray-500 uppercase pb-4">Game Details</h1>
+  <div class="py-10">
+    <div
+      v-if="game && !loading"
+      class="bg-gray-100 text-gray-500 shadow-md flex justify-center items-center p-4 mb-10 game-image"
+    >
+      image
+    </div>
 
-    <div v-if="game && !loading" class="bg-white rounded shadow-lg p-4">
-      <h2 class="text-3xl text-gray-700">{{ game.title }}</h2>
-      <h4 class="text-md text-gray-600">{{ game.body }}</h4>
+    <div v-if="game && !loading" class="sec-bg p-4 mb-10">
+      <h2 class="text-xl text-gray-700">{{ game.title }}</h2>
+      <h4 class="text-sm text-gray-600">{{ game.body }}</h4>
     </div>
 
     <div v-else-if="loading" class="flex justify-center">
@@ -18,8 +23,8 @@
       {{ error }}
     </p>
 
-    <div class="my-20">
-      <MostRecommended />
+    <div>
+      <MostRecommendation />
     </div>
   </div>
 </template>
@@ -61,3 +66,9 @@ export default class GameDetails extends Vue {
   }
 }
 </script>
+
+<style>
+.game-image {
+  height: 150px;
+}
+</style>

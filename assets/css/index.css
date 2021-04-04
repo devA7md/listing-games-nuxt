@@ -8,6 +8,7 @@ html {
   justify-content: space-between;
   height: 100%;
 }
+
 .p-card-content {
   padding: 0;
 }
@@ -26,9 +27,17 @@ html {
 }
 
 .sec-layout {
-  @apply my-4 sm:my-5 p-4 sm:p-10;
+  @apply px-10 sm:px-20 md:px-32;
+}
+
+.sec-layout-vertical {
+  @apply my-10;
 }
 
 .icon-style {
-  @apply text-gray-50 text-xl cursor-pointer;
+  @apply text-gray-900 text-xl cursor-pointer;
+}
+
+.sec-bg {
+  @apply bg-white shadow-md;
 }

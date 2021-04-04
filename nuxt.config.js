@@ -19,13 +19,11 @@ export default {
     [
       'primevue/nuxt',
       {
-        theme: 'saga-orange',
+        theme: 'saga-purple',
         ripple: true,
         components: [
           'Button',
           'Menu',
-          'Sidebar',
-          'Carousel',
           'Message',
           'ProgressSpinner',
           'Card',

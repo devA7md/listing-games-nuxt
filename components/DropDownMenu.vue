@@ -1,13 +1,10 @@
 <template>
-  <div class="hidden sm:block">
-    <div
-      data-testid="menu-btn"
-      class="flex items-center justify-between text-gray-50 space-x-1 cursor-pointer"
+  <div>
+    <i
+      data-testid="menu-icon"
+      class="pi pi-ellipsis-v text-gray-900 cursor-pointer"
       @click="toggle"
-    >
-      <p data-testid="menu-text">MENU</p>
-      <i data-testid="menu-icon" class="pi pi-angle-down"></i>
-    </div>
+    ></i>
     <Menu ref="menu" data-testid="menu" :model="items" :popup="true" />
   </div>
 </template>

@@ -9,6 +9,7 @@
     />
     <div
       v-if="filtered.length > 0"
+      :style="{ width: '100%' }"
       class="absolute top-15 bg-white shadow-lg border-2 border-gray-200 rounded z-50"
     >
       <p

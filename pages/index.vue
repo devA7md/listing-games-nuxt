@@ -1,19 +1,17 @@
 <template>
   <div>
-    <div class="sec-layout">
-      <Categories />
-    </div>
+    <Categories />
 
-    <div class="sec-layout">
+    <div class="sec-layout sec-layout-vertical">
       <FeaturedGame />
     </div>
 
-    <div class="sec-layout">
-      <PopularGames />
+    <div class="sec-layout sec-layout-vertical">
+      <MostRecommendation />
     </div>
 
-    <div class="sec-layout">
-      <MostRecommended />
+    <div class="sec-layout sec-layout-vertical">
+      <MostPopular />
     </div>
   </div>
 </template>

@@ -8,7 +8,11 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        purple: '#8c239e',
+      },
+    },
   },
   variants: {
     extend: {},

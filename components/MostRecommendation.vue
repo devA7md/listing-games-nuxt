@@ -1,19 +1,16 @@
 <template>
-  <div class="py-10">
-    <CardsGrid
-      :error="error"
-      :loading="loading"
-      :title="`Games for category ${$route.params.id}`"
-      :games="games"
-      :displaySeeAll="false"
-    />
-  </div>
+  <CardsGrid
+    :error="error"
+    :loading="loading"
+    title="Most Recommendation"
+    :games="games"
+  />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { IGame } from '@/types/games.types'
 import Component from 'vue-class-component'
-import { IGame } from '~/types/games.types'
 import {
   fetchAndCategorizeGames,
   handleAxiosError,
@@ -22,11 +19,11 @@ import {
 @Component({
   watch: {
     currentCategories(categories) {
-      ;(this as any).games = categories
+      ;(this as any).games = categories.slice(0, 5)
     },
   },
 })
-export default class CategoryPreview extends Vue {
+export default class MostRecommendation extends Vue {
   games: IGame[] = []
   loading: boolean = false
   error: string | null = null
@@ -39,9 +36,9 @@ export default class CategoryPreview extends Vue {
     return this.$store.state.games.categories
   }
 
-  async mounted(): Promise<void> {
+  async created(): Promise<void> {
     if (Object.keys(this.storeCategories).length > 0) {
-      this.games = this.currentCategories
+      this.games = this.currentCategories.slice(0, 5)
     } else {
       try {
         this.loading = true
